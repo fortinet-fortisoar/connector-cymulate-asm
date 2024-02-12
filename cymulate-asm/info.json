@@ -40,11 +40,105 @@
         "visible": true,
         "required": false,
         "value": true,
-        "description": "Specifies whether the SSL certificate for the server is to be verified. \nBy default, this option is set to True.  "
+        "description": "Specifies whether the SSL certificate for the server is to be verified. \nBy default, this option is set to True."
       }
     ]
   },
   "operations": [
+    {
+      "operation": "create_internal_assessment",
+      "title": "Create Internal Assessment",
+      "annotation": "create_internal_assessment",
+      "description": "Create a specific Internal ASM assessment in Cymulate ASM.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "name",
+          "title": "Assessment Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Specify the name of the assessment.",
+          "description": "Specify the name of the assessment."
+        },
+        {
+          "name": "description",
+          "title": "Assessment Description",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Specify the description of the assessment.",
+          "description": "Specify the description of the assessment."
+        },
+        {
+          "name": "address",
+          "title": "Agent Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Specify the agent name.",
+          "description": "Specify the agent name."
+        },
+        {
+          "name": "agentUserName",
+          "title": "Profile Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Specify the profile name.",
+          "description": "Specify the profile name."
+        },
+        {
+          "name": "selectedPlatforms",
+          "title": "Platforms",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "azure, active_directory, aws, gcp",
+          "tooltip": "Specify the platforms for example Azure, Active Directory, AWS, GCP you can specify multiple platforms as comma-separated values.",
+          "description": "Specify the platforms for example Azure, Active Directory, AWS, GCP you can specify multiple platforms as comma-separated values."
+        },
+        {
+          "name": "crownJewels",
+          "title": "Crown Jewels",
+          "type": "json",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "value": "[\n    {\n      \"platform\": \"aws\",\n      \"key\": \"AWSUser\",\n      \"value\": \"user@example.com\"\n    }\n  ]",
+          "tooltip": "Specify the crown jewels (Important resources on which to create assessment).",
+          "description": "Specify the crown jewels (Important resources on which to create assessment)."
+        },
+        {
+          "name": "scheduledFor",
+          "title": "Schedule For",
+          "type": "datetime",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "Specify the time at which assessment should be triggered.",
+          "description": "Specify the time at which assessment should be triggered."
+        },
+        {
+          "name": "scheduleLoop",
+          "title": "Schedule Loop",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Specify the frequency for triggering the assessment eg: one-time.",
+          "description": "Specify the frequency for triggering the assessment eg: one-time."
+        }
+      ],
+      "output_schema": {}
+    },
     {
       "operation": "get_assessment_list",
       "title": "Get Assessment List",
@@ -61,8 +155,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the date from where to fetch assessments",
-          "description": "Specify the date from where to fetch assessments"
+          "tooltip": "Specify the date from where to fetch assessments.",
+          "description": "Specify the date from where to fetch assessments."
         },
         {
           "name": "toDate",
@@ -191,8 +285,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the assessment ID to fetch its details.",
-          "description": "Specify the assessment ID to fetch its details."
+          "tooltip": "Specify the assessment ID for which you want to fetch the details from Cymulate ASM.",
+          "description": "Specify the assessment ID for which you want to fetch the details from Cymulate ASM."
         }
       ],
       "output_schema": {}
@@ -213,102 +307,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the assessment ID to delete.",
-          "description": "Specify the assessment ID to delete."
-        }
-      ],
-      "output_schema": {}
-    },
-    {
-      "operation": "create_internal_assessment",
-      "title": "Create Internal Assessment",
-      "annotation": "create_internal_assessment",
-      "description": "Create a specific Internal ASM assessment in Cymulate ASM.",
-      "category": "investigation",
-      "visible": true,
-      "enabled": true,
-      "parameters": [
-        {
-          "name": "name",
-          "title": "Assessment Name",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "tooltip": "Specify the name of the assessment",
-          "description": "Specify the name of the assessment"
-        },
-        {
-          "name": "description",
-          "title": "Assessment Description",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "tooltip": "Specify the description of the assessment",
-          "description": "Specify the description of the assessment"
-        },
-        {
-          "name": "address",
-          "title": "Agent Name",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "tooltip": "Specify the agent name.",
-          "description": "Specify the agent name."
-        },
-        {
-          "name": "agentUserName",
-          "title": "Profile Name",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "tooltip": "Specify the profile name.",
-          "description": "Specify the profile name."
-        },
-        {
-          "name": "selectedPlatforms",
-          "title": "Platforms",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "placeholder": "azure, active_directory, aws, gcp",
-          "tooltip": "Specify the platforms for example Azure, Active Directory, AWS, GCP you can specify multiple platforms as comma-separated values.",
-          "description": "Specify the platforms for example Azure, Active Directory, AWS, GCP you can specify multiple platforms as comma-separated values."
-        },
-        {
-          "name": "crownJewels",
-          "title": "Crown Jewels",
-          "type": "json",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "value": "[\n    {\n      \"platform\": \"aws\",\n      \"key\": \"AWSUser\",\n      \"value\": \"user@example.com\"\n    }\n  ]",
-          "tooltip": "Specify the crown jewels (Important resources on which to create assessment).",
-          "description": "Specify the crown jewels (Important resources on which to create assessment)."
-        },
-        {
-          "name": "scheduledFor",
-          "title": "Schedule For",
-          "type": "datetime",
-          "editable": true,
-          "visible": true,
-          "required": false,
-          "tooltip": "Specify the time at which assessment should be triggered.",
-          "description": "Specify the time at which assessment should be triggered."
-        },
-        {
-          "name": "scheduleLoop",
-          "title": "Schedule Loop",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "tooltip": "Specify the frequency for triggering the assessment eg: one-time.",
-          "description": "Specify the frequency for triggering the assessment eg: one-time."
+          "tooltip": "Specify the assessment ID which you want to delete from Cymulate ASM.",
+          "description": "Specify the assessment ID which you want to delete from Cymulate ASM."
         }
       ],
       "output_schema": {}

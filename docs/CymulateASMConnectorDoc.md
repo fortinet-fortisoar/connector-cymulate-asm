@@ -37,7 +37,8 @@ For the procedure to configure a connector, click [here](https://docs.fortinet.c
 
 ## Actions supported by the connector
 The following automated operations can be included in playbooks and you can also use the annotations to access operations:
-<table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Get Assessment List</td><td>Retrieve the ASM assessment history within the date range provided. If a date range is not provided, the response will retrieve the history from the last 30 days.</td><td>get_assessment_list <br/>Investigation</td></tr>
+<table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Create Internal Assessment</td><td>Create a specific Internal ASM assessment in Cymulate ASM.</td><td>create_internal_assessment <br/>Investigation</td></tr>
+<tr><td>Get Assessment List</td><td>Retrieve the ASM assessment history within the date range provided. If a date range is not provided, the response will retrieve the history from the last 30 days.</td><td>get_assessment_list <br/>Investigation</td></tr>
 <tr><td>Get Findings List For Latest Assessment</td><td>Retrieve all findings generated in the latest ASM assessment from Cymulate ASM.</td><td>get_findings_list_for_latest_assessment <br/>Investigation</td></tr>
 <tr><td>Get Findings List By Assessment ID</td><td>Retrieve all findings generated in a specific ASM assessment from Cymulate ASM.</td><td>get_findings_list_by_assessment_id <br/>Investigation</td></tr>
 <tr><td>Get Assets List For Latest Assessment</td><td>Retrieve a list of assets from the latest assessment from Cymulate ASM.</td><td>get_assets_list_for_latest_assessment <br/>Investigation</td></tr>
@@ -45,9 +46,23 @@ The following automated operations can be included in playbooks and you can also
 <tr><td>Get Internal Assessment List</td><td>Retrieve Internal ASM assessments from Cymulate ASM.</td><td>get_internal_assessment_list <br/>Investigation</td></tr>
 <tr><td>Get Internal Assessment By ID</td><td>Retrieve a specific Internal ASM assessment from Cymulate ASM.</td><td>get_internal_assessment_by_id <br/>Investigation</td></tr>
 <tr><td>Delete Internal Assessment By ID</td><td>Delete a specific Internal ASM assessment from Cymulate ASM.</td><td>delete_internal_assessment_by_id <br/>Investigation</td></tr>
-<tr><td>Create Internal Assessment</td><td>Create a specific Internal ASM assessment in Cymulate ASM.</td><td>create_internal_assessment <br/>Investigation</td></tr>
 </tbody></table>
 
+### operation: Create Internal Assessment
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Assessment Name</td><td>Specify the name of the assessment.
+</td></tr><tr><td>Assessment Description</td><td>Specify the description of the assessment.
+</td></tr><tr><td>Agent Name</td><td>Specify the agent name.
+</td></tr><tr><td>Profile Name</td><td>Specify the profile name.
+</td></tr><tr><td>Platforms</td><td>Specify the platforms for example Azure, Active Directory, AWS, GCP you can specify multiple platforms as comma-separated values.
+</td></tr><tr><td>Crown Jewels</td><td>Specify the crown jewels (Important resources on which to create assessment).
+</td></tr><tr><td>Schedule For</td><td>(Optional) Specify the time at which assessment should be triggered.
+</td></tr><tr><td>Schedule Loop</td><td>Specify the frequency for triggering the assessment eg: one-time.
+</td></tr></tbody></table>
+
+#### Output
+
+ The output contains a non-dictionary value.
 ### operation: Get Assessment List
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>From Date</td><td>(Optional) Specify the date from where to fetch assessments.
@@ -90,13 +105,12 @@ None.
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Offset</td><td>Specify the number of records to skip.
 </td></tr><tr><td>Limit</td><td>Specify the limit of how many items to get (min - 1000, max - 10000) - Default = 100.
 </td></tr></tbody></table>
-
 #### Output
 
  The output contains a non-dictionary value.
 ### operation: Get Internal Assessment By ID
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Assessment ID</td><td>Specify the assessment ID to fetch its details.
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Assessment ID</td><td>Specify the assessment ID for which you want to fetch the details from Cymulate ASM.
 </td></tr></tbody></table>
 
 #### Output
@@ -104,22 +118,7 @@ None.
  The output contains a non-dictionary value.
 ### operation: Delete Internal Assessment By ID
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Assessment ID</td><td>Specify the assessment ID to delete.
-</td></tr></tbody></table>
-
-#### Output
-
- The output contains a non-dictionary value.
-### operation: Create Internal Assessment
-#### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Assessment Name</td><td>Specify the name of the assessment.
-</td></tr><tr><td>Assessment Description</td><td>Specify the description of the assessment.
-</td></tr><tr><td>Agent Name</td><td>Specify the agent name.
-</td></tr><tr><td>Profile Name</td><td>Specify the profile name.
-</td></tr><tr><td>Platforms</td><td>Specify the platforms for example Azure, Active Directory, AWS, GCP you can specify multiple platforms as comma-separated values.
-</td></tr><tr><td>Crown Jewels</td><td>Specify the crown jewels (Important resources on which to create assessment).
-</td></tr><tr><td>Schedule For</td><td>(Optional) Specify the time at which assessment should be triggered.
-</td></tr><tr><td>Schedule Loop</td><td>Specify the frequency for triggering the assessment eg: one-time.
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Assessment ID</td><td>Specify the assessment ID which you want to delete from Cymulate ASM.
 </td></tr></tbody></table>
 
 #### Output
@@ -131,7 +130,7 @@ The `Sample - cymulate-asm - 1.0.0` playbook collection comes bundled with the C
 - Create Internal Assessment
 - Delete Internal Assessment By ID
 - Get Assessment List
-- Get Assets List By Assessment ID 
+- Get Assets List By Assessment ID
 - Get Assets List For Latest Assessment
 - Get Findings List By Assessment ID
 - Get Findings List For Latest Assessment
