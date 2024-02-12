@@ -1,0 +1,669 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "56dea588-9b2b-46a4-af6b-dbbb374b2256",
+      "@type": "WorkflowCollection",
+      "name": "Sample - Cymulate ASM - 1.0.0",
+      "description": "The Cymulate Exposure Management and Security Validation Platform provides the technology for exposure\ndiscovery, validation, and prioritization with business insights and intelligence. This simplifies security leaders\u2019 risk\nand resilience to emergent threats and a rapidly changing attack surface. With a complete view of the security\nposture and business risks, the Cymulate platform gives security leaders the data they need to define the scope for cyber initiatives, successfully mobilize mitigations, and continuously assess security operations performance. ",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Cymulate",
+        "cymulate-asm"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "b6bc2d4a-6a0c-4082-b60c-4ad019c90661",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Retrieve the ASM assessment history within the date range provided. If a date range is not provided, the response will retrieve the history from the last 30 days.",
+          "name": "Get Assessment List",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b68aad6a-93df-4240-8c39-64055d2ca599",
+          "steps": [
+            {
+              "uuid": "b68aad6a-93df-4240-8c39-64055d2ca599",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "f99b38dd-9f20-4938-bc75-554996dcb37f",
+                "title": "Cymulate ASM: Get Assessment List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "6bda6229-09e9-435e-a65a-e6741dc8b94a",
+              "@type": "WorkflowStep",
+              "name": "Get Assessment List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "get_assessment_list",
+                "operationTitle": "Get Assessment List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "b2ebc358-54a1-404f-9132-da02bf51242d",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Assessment List",
+              "sourceStep": "/api/3/workflow_steps/b68aad6a-93df-4240-8c39-64055d2ca599",
+              "targetStep": "/api/3/workflow_steps/6bda6229-09e9-435e-a65a-e6741dc8b94a"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "4b690389-bb2e-4ecb-b2da-fdb71b217439",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Retrieve all findings generated in the latest ASM assessment from Cymulate ASM.",
+          "name": "Get Findings List For Latest Assessment",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/3efcbb90-c701-4e51-8736-0469ed52b937",
+          "steps": [
+            {
+              "uuid": "3efcbb90-c701-4e51-8736-0469ed52b937",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "a2450601-82c1-48d5-b472-7ece14b46a01",
+                "title": "Cymulate ASM: Get Findings List For Latest Assessment",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "5962958e-9ecb-4c9e-b8ec-a18e3760e0d7",
+              "@type": "WorkflowStep",
+              "name": "Get Findings List For Latest Assessment",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "get_findings_list_for_latest_assessment",
+                "operationTitle": "Get Findings List For Latest Assessment"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "89b04716-a9b5-453d-975b-c6eb7bd18ac8",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Findings List For Latest Assessment",
+              "sourceStep": "/api/3/workflow_steps/3efcbb90-c701-4e51-8736-0469ed52b937",
+              "targetStep": "/api/3/workflow_steps/5962958e-9ecb-4c9e-b8ec-a18e3760e0d7"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "161c77f1-6225-4a10-acf7-df41530c00f7",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Retrieve all findings generated in a specific ASM assessment from Cymulate ASM.",
+          "name": "Get Findings List By Assessment ID",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d0b475f4-c8d8-45df-9a02-70e8c5fb9633",
+          "steps": [
+            {
+              "uuid": "d0b475f4-c8d8-45df-9a02-70e8c5fb9633",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "938fa162-bf61-46b5-8db9-b7c3c44374ac",
+                "title": "Cymulate ASM: Get Findings List By Assessment ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "2b044dec-3017-40c3-9287-46054b1310b0",
+              "@type": "WorkflowStep",
+              "name": "Get Findings List By Assessment ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "get_findings_list_by_assessment_id",
+                "operationTitle": "Get Findings List By Assessment ID"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "65ffae21-9fd0-4d7b-9a3a-f2fe318d8311",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Findings List By Assessment ID",
+              "sourceStep": "/api/3/workflow_steps/d0b475f4-c8d8-45df-9a02-70e8c5fb9633",
+              "targetStep": "/api/3/workflow_steps/2b044dec-3017-40c3-9287-46054b1310b0"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "38d2b779-de1b-40f8-a090-46742d1e5e08",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Retrieve a list of assets from the latest assessment from Cymulate ASM.",
+          "name": "Get Assets List For Latest Assessment",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/9306b993-3d18-4b51-95e3-dca293516d4e",
+          "steps": [
+            {
+              "uuid": "9306b993-3d18-4b51-95e3-dca293516d4e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "da584017-b4cd-4142-adb6-f2e5aeffca9f",
+                "title": "Cymulate ASM: Get Assets List For Latest Assessment",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "72069e3b-5487-4161-9f2e-00e256b6b163",
+              "@type": "WorkflowStep",
+              "name": "Get Assets List For Latest Assessment",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "get_assets_list_for_latest_assessment",
+                "operationTitle": "Get Assets List For Latest Assessment"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "b21b7556-1a8d-42b8-abd0-22784f5c6133",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Assets List For Latest Assessment",
+              "sourceStep": "/api/3/workflow_steps/9306b993-3d18-4b51-95e3-dca293516d4e",
+              "targetStep": "/api/3/workflow_steps/72069e3b-5487-4161-9f2e-00e256b6b163"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f70973ff-04e2-468c-8933-531b16b04b64",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Retrieve a list of assets for a specific assessment from Cymulate ASM.",
+          "name": "Get Assets List By Assessment ID",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/8511f026-bc0c-4b44-a354-912f3b337fd4",
+          "steps": [
+            {
+              "uuid": "8511f026-bc0c-4b44-a354-912f3b337fd4",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "95f88e8b-5bd7-442f-ab73-3db25d22aeda",
+                "title": "Cymulate ASM: Get Assets List By Assessment ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "31e80d29-01e4-441e-a5a4-ed5fd8b53aa6",
+              "@type": "WorkflowStep",
+              "name": "Get Assets List By Assessment ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "get_assets_list_by_assessment_id",
+                "operationTitle": "Get Assets List By Assessment ID"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "8a7732c2-7366-4abe-9ee3-4c44805b559b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Assets List By Assessment ID",
+              "sourceStep": "/api/3/workflow_steps/8511f026-bc0c-4b44-a354-912f3b337fd4",
+              "targetStep": "/api/3/workflow_steps/31e80d29-01e4-441e-a5a4-ed5fd8b53aa6"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "bffc1cc3-084f-4b9b-87cd-4538a4f0fd18",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Retrieve Internal ASM assessments from Cymulate ASM.",
+          "name": "Get Internal Assessment List",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/09a458e0-69e3-42c1-8f85-96e5abdc1302",
+          "steps": [
+            {
+              "uuid": "09a458e0-69e3-42c1-8f85-96e5abdc1302",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "af733565-a26b-453c-bf39-dd7491bc9454",
+                "title": "Cymulate ASM: Get Internal Assessment List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "09a42d7a-46e1-4c8c-a8ec-0e0f9918f985",
+              "@type": "WorkflowStep",
+              "name": "Get Internal Assessment List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "get_internal_assessment_list",
+                "operationTitle": "Get Internal Assessment List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "90a0e4dc-bc95-49b7-9078-bb89c312fac4",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Internal Assessment List",
+              "sourceStep": "/api/3/workflow_steps/09a458e0-69e3-42c1-8f85-96e5abdc1302",
+              "targetStep": "/api/3/workflow_steps/09a42d7a-46e1-4c8c-a8ec-0e0f9918f985"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "1de716e3-185b-47f2-8bad-4316a54cd583",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Retrieve a specific Internal ASM assessment from Cymulate ASM.",
+          "name": "Get Internal Assessment By ID",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6a729885-7979-48a4-9d58-4053ac76471d",
+          "steps": [
+            {
+              "uuid": "6a729885-7979-48a4-9d58-4053ac76471d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "296b213c-ab96-42e2-99ce-a7c3d958057d",
+                "title": "Cymulate ASM: Get Internal Assessment By ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "c39b53ea-4704-4465-b1a5-30bbc238c26d",
+              "@type": "WorkflowStep",
+              "name": "Get Internal Assessment By ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "get_internal_assessment_by_id",
+                "operationTitle": "Get Internal Assessment By ID"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "0cdcf21d-00c9-46bd-be16-d2113da7f869",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Internal Assessment By ID",
+              "sourceStep": "/api/3/workflow_steps/6a729885-7979-48a4-9d58-4053ac76471d",
+              "targetStep": "/api/3/workflow_steps/c39b53ea-4704-4465-b1a5-30bbc238c26d"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "5d0ca175-205a-4623-9396-9cd5e4910ab5",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Delete a specific Internal ASM assessment from Cymulate ASM.",
+          "name": "Delete Internal Assessment By ID",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/796f38fc-5af0-47f1-8121-973eba5d39b2",
+          "steps": [
+            {
+              "uuid": "796f38fc-5af0-47f1-8121-973eba5d39b2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "9991bab3-a38b-49d6-bb4f-bc1c4ada257c",
+                "title": "Cymulate ASM: Delete Internal Assessment By ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "3b66ec19-6b06-4395-8272-6c1c569a1310",
+              "@type": "WorkflowStep",
+              "name": "Delete Internal Assessment By ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "delete_internal_assessment_by_id",
+                "operationTitle": "Delete Internal Assessment By ID"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "0ce0977f-5aa3-4610-8016-89f0d9b1b216",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Internal Assessment By ID",
+              "sourceStep": "/api/3/workflow_steps/796f38fc-5af0-47f1-8121-973eba5d39b2",
+              "targetStep": "/api/3/workflow_steps/3b66ec19-6b06-4395-8272-6c1c569a1310"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "bd50c81c-b440-4380-b036-d97c08684a58",
+          "collection": "/api/3/workflow_collections/56dea588-9b2b-46a4-af6b-dbbb374b2256",
+          "triggerLimit": null,
+          "description": "Create a specific Internal ASM assessment in Cymulate ASM.",
+          "name": "Create Internal Assessment",
+          "tag": "#Cymulate ASM",
+          "recordTags": [
+            "Cymulate",
+            "cymulate-asm"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/bf43ad24-1aa4-4098-94a4-6155e987c3e7",
+          "steps": [
+            {
+              "uuid": "bf43ad24-1aa4-4098-94a4-6155e987c3e7",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "7a3ed2e1-471d-42b2-9298-77759cb6f78d",
+                "title": "Cymulate ASM: Create Internal Assessment",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "0fb4e9be-bfe0-4460-bc9c-be14142cc0d2",
+              "@type": "WorkflowStep",
+              "name": "Create Internal Assessment",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cymulate ASM",
+                "config": "",
+                "params": {
+                  "crownJewels": "[\n    {\n      \"platform\": \"aws\",\n      \"key\": \"AWSUser\",\n      \"value\": \"user@example.com\"\n    }\n  ]"
+                },
+                "version": "1.0.0",
+                "connector": "cymulate-asm",
+                "operation": "create_internal_assessment",
+                "operationTitle": "Create Internal Assessment"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "d36c9b8d-751d-4f07-b72f-ad4da04ed7bc",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Internal Assessment",
+              "sourceStep": "/api/3/workflow_steps/bf43ad24-1aa4-4098-94a4-6155e987c3e7",
+              "targetStep": "/api/3/workflow_steps/0fb4e9be-bfe0-4460-bc9c-be14142cc0d2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
